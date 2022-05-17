@@ -1,8 +1,11 @@
 import React from 'react'
 
-function Response() {
+function Response({ prompt, response }) {
   return (
-    <div>Response</div>
+    <div>
+        <p>Prompt: {prompt}</p>
+        <p>Response: {response}</p>
+    </div>
   )
 }
 
