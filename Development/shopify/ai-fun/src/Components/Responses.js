@@ -3,7 +3,7 @@ import Response from './Response'
 
 function Responses({ responses }) {
   return (
-    <div>
+    <div id='responses'>
         <h2>Kaia's Responses</h2>
         {responses.map(res => (
             <Response prompt={res.prompt} response={res.response}/>

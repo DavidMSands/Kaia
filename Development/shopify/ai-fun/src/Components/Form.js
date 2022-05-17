@@ -28,10 +28,10 @@ function Form({ setResponses, responses }) {
             .then(r => setResponses((responses) => [{
                 prompt: prompt,
                 response: r.choices[0].text
-            }, ...responses]))   
+            }, ...responses])) 
+            
+            setPrompt(null)
     }
-
-    console.log(responses)
 
 
   return (

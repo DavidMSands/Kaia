@@ -2,9 +2,9 @@ import React from 'react'
 
 function Response({ prompt, response }) {
   return (
-    <div>
-        <p>Prompt: {prompt}</p>
-        <p>Response: {response}</p>
+    <div className='response'>
+        <p><b>Prompt:</b> {prompt}</p>
+        <p><b>Response:</b> {response}</p>
     </div>
   )
 }
