@@ -125,3 +125,12 @@ h2 {
   border-bottom: 1px solid var(--main-clr);
   padding-bottom: 5px;
 }
+
+ul li {
+  list-style: none;
+}
+
+ul li:hover, #form p:hover {
+  cursor: pointer;
+  color: var(--main-clr);
+}

@@ -4,6 +4,7 @@ const KEY = process.env.REACT_APP_OPENAI_SECRET
 
 function Form({ setResponses }) {
     const [prompt, setPrompt] = useState()
+    const [isHelp, setIsHelp] = useState(false)
 
     const kaiaSubmit = (e) => {
         e.preventDefault()
@@ -31,9 +32,12 @@ function Form({ setResponses }) {
                 response: r.choices[0].text
                 }, ...responses])
             setPrompt('')
-            console.log(r)
-            })
-            
+            setIsHelp(false)
+            })   
+    }
+
+    const onHelpClick = () => {
+        setIsHelp(!isHelp)
     }
 
 
@@ -44,8 +48,18 @@ function Form({ setResponses }) {
             <div id='ask-kaia'>
                 <textarea rows="10" cols="50" placeholder='Write a haiku about rice...' value={prompt} onChange={(e) => setPrompt(e.target.value)}></textarea>
             </div>
+            <p onClick={onHelpClick}>Need help?</p>
+            {isHelp 
+            ? <ul id='help'>
+                <li onClick={(e) => setPrompt(e.target.textContent)}>Write a story about a fragile teapot.</li>
+                <li onClick={(e) => setPrompt(e.target.textContent)}>Write a poem about a cactus.</li>
+                <li onClick={(e) => setPrompt(e.target.textContent)}>Write a story about a pizza's frustration with Planet Fitness.</li>
+              </ul>
+            : null
+            }
             <input type='submit' value="Send" className='new-prompt-submit'></input>
         </form>
+        
     </div>
   )
 }
