@@ -1,6 +1,11 @@
 :root {
   --main-clr: #6ca4ff;
   --gradient: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+  --primary-font: 'Cormorant Garamond', serif;
+}
+
+body {
+  font-family: var(--primary-font);
 }
 
 #header {
@@ -104,4 +109,19 @@ textarea {
   background-size: 500% auto;
   animation: gradient 3s linear infinite;
   border-radius: 5px;
+}
+
+#no-responses {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#no-responses img {
+    max-width: 300px;
+}
+
+h2 {
+  border-bottom: 1px solid var(--main-clr);
+  padding-bottom: 5px;
 }

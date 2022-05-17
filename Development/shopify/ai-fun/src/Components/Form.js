@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const KEY = process.env.REACT_APP_OPENAI_SECRET
 
-function Form({ setResponses, responses }) {
+function Form({ setResponses }) {
     const [prompt, setPrompt] = useState()
 
     const kaiaSubmit = (e) => {
@@ -25,12 +25,15 @@ function Form({ setResponses, responses }) {
             body: JSON.stringify(data),
             })
             .then(res => res.json())
-            .then(r => setResponses((responses) => [{
+            .then(r => {
+                setResponses((responses) => [{
                 prompt: prompt,
                 response: r.choices[0].text
-            }, ...responses])) 
+                }, ...responses])
+            setPrompt('')
+            console.log(r)
+            })
             
-            setPrompt(null)
     }
 
 
